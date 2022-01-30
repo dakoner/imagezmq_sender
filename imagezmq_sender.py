@@ -18,8 +18,8 @@ HUB='tcp://desktop-h3tsld0.local:5555'
 if __name__ == '__main__':
     import cv2
     cap = cv2.VideoCapture(0)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 3264)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 2448)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1600)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1200)
 
     sender = imagezmq.ImageSender(connect_to=HUB)
     while True:
