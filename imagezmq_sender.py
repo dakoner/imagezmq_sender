@@ -1,10 +1,6 @@
-import numpy as np
-import socket
-import time
 import imagezmq
 import simplejpeg
 #from simple_pyspin import Camera
-from imutils.video import videostream
 
 HUB='tcp://desktop-h3tsld0.local:5555'
 
