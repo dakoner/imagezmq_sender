@@ -20,10 +20,14 @@ HUB='tcp://desktop-h3tsld0.local:5555'
 #         print("sent")
 
 if __name__ == '__main__':
-    cam = videostream.VideoStream(usePiCamera=False).start()
+    import cv2
+    cap = cv2.VideoCapture(0)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 3264)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 2448)
+
     sender = imagezmq.ImageSender(connect_to=HUB)
     while True:
-        img = cam.read()
-        jpg_buffer = simplejpeg.encode_jpeg(img, quality=55, colorspace='RGB')
-        sender.send_jpg("microscope", jpg_buffer)
-        print("sent")
+        ret, img = cap.read()
+        if ret:
+          jpg_buffer = simplejpeg.encode_jpeg(img, quality=85, colorspace='RGB')
+          sender.send_jpg("microscope", jpg_buffer)
