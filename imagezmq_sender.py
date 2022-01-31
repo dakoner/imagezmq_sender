@@ -4,7 +4,6 @@ from simple_pyspin import Camera
 import cv2
 import numpy as np
 
-#HUB='tcp://gork.local:5555'
 port = 5555
 
 if __name__ == '__main__':
@@ -22,7 +21,7 @@ if __name__ == '__main__':
 #     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1600)
 #     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1200)
 
-#     sender = imagezmq.ImageSender(connect_to=HUB)
+#     sender = imagezmq.ImageSender("tcp://*:{}".format(port), REQ_REP=False)
 #     while True:
 #         ret, img = cap.read()
 #         if ret:
